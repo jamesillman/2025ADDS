@@ -5,17 +5,11 @@
 #include <string>
 
 class Player {
-    private:
-        std::string name;
-        char move;
-
     public:
-        void makeMove(char move);
-        void getName(std::string name);
+        virtual void makeMove() = 0;
+        virtual void getName() = 0;
     
-        ~Player() {}
-        Player(std::string name, char move);
-
+        virtual ~Player() {}
 };
 
 #endif  // PLAYER_H
