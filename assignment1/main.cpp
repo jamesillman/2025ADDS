@@ -10,7 +10,8 @@ int main(void) {
     Computer p2;
     Referee ref;
 
-    
+    p1.getName();
+
 
     Player* result = ref.refGame(&p1, &p2);
 

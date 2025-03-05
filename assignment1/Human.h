@@ -6,10 +6,10 @@
 #include "Player.h"
 
 class Human : public Player {        
-    private:
+    public:
         std::string name;
         char move;
-    public:
+
         char makeMove() override;
         std::string getName() override;
 

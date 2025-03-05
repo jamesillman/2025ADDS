@@ -6,7 +6,7 @@
 
 
 Player* Referee::refGame(Human* p1, Computer* p2) {
-    std::string player1_name = p1->getName();
+    std::string player1_name = *p1.name();
     std::string player2_name = p2->getName();
 
     char player1_move = p1->makeMove();

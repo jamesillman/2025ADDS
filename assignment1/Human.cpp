@@ -12,10 +12,18 @@ Human::Human(std::string name) {
 
 
 char Human::makeMove() {
+    char m;
+    std::cout << "Enter move: ";
+    std::cin >> m;
+    this->move = m;
     return move;
 }
 
 std::string Human::getName() {
-    return name;
+    std::string n;
+    std::cout << "Enter name: ";
+    std::cin >> n;
+    this->name = n;
+    return n;
 }
 
