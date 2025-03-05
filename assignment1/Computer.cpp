@@ -9,7 +9,7 @@ Computer::Computer() {
 
 
 char Computer::makeMove() {
-    return 'R';
+    return 'R'; //comment
 }
 
 std::string Computer::getName() {
