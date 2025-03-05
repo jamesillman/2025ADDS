@@ -11,17 +11,19 @@ Human::Human(std::string name) {
 }
 
 
-void Human::makeMove() {
+char Human::makeMove() {
     char m;
     std::cout << "Enter move: ";
     std::cin >> m;
     this->move = m;
+    return m;
 }
 
-void Human::getName() {
+std::string Human::getName() {
     std::string n;
     std::cout << "Enter name: ";
     std::cin >> n;
     this->name = n;
+    return n;
 }
 
