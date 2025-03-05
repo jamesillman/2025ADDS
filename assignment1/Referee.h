@@ -9,7 +9,7 @@ class Referee {
     private:
 
     public:
-        Player* refGame(Human&, Computer&);
+        Player* refGame(Human*, Computer*);
 
         Referee() {}
         
