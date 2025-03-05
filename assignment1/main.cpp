@@ -10,6 +10,8 @@ int main(void) {
     Computer p2;
     Referee ref;
 
+    
+
     Player* result = ref.refGame(&p1, &p2);
 
     if (result == nullptr) {
