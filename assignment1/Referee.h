@@ -3,12 +3,13 @@
 
 #include <iostream>
 #include <string>
+#include "Player.h"
 
 class Referee {        
     private:
 
     public:
-        std::string refGame(Human, Computer);
+        Player* refGame(Human&, Computer&);
 
         Referee() {}
         

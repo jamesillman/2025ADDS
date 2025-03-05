@@ -10,12 +10,12 @@ int main(void) {
     Computer p2;
     Referee ref;
 
-    std::string result = ref.refGame(p1, p2);
+    Player* result = ref.refGame(p1, p2);
 
-    if (result.empty()) {
+    if (result == nullptr) {
         std::cout << "It's a Tie" << std::endl;
     } else {
-        std::cout << result << " Wins" << std::endl;
+        std::cout << result->getName() << " Wins" << std::endl;
     }
         
 
