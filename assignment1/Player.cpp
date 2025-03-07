@@ -1,5 +1,4 @@
-#include "Player.h"
-#include <iostream>
 
 
-//Player::~Player() {}
+
+// Not required as abstract

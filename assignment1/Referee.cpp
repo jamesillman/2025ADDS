@@ -6,11 +6,12 @@
 
 
 Player* Referee::refGame(Human* p1, Computer* p2) {
-    std::string player1_name = *p1.name();
-    std::string player2_name = p2->getName();
+    std::string name1 = p1->getName();
 
     char player1_move = p1->makeMove();
-    //char player2_move = p2->makeMove();
+    char player2_move = p2->makeMove();
+
+    
 
     switch (player1_move) {
         case 'R':
@@ -21,5 +22,5 @@ Player* Referee::refGame(Human* p1, Computer* p2) {
             return p2;
         
     }
-    return nullptr;
+    //return nullptr;
 }

@@ -6,7 +6,7 @@
 #include "Referee.h"
 
 int main(void) {
-    Human p1; 
+    Human p1("James"); 
     Computer p2;
     Referee ref;
 

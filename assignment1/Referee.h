@@ -6,12 +6,9 @@
 #include "Player.h"
 
 class Referee {        
-    private:
 
     public:
-        Player* refGame(Human*, Computer*);
-
-        Referee() {}
+        Player* refGame(Human* p1, Computer* p2);
         
 
 };
