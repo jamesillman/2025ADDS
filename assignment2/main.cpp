@@ -8,10 +8,11 @@
 
 int main(void) {
     Human p1("James"); 
-    Computer p2;
+    Human p2("Me");
     Referee ref;
 
-    p1.getName();
+    //p1.getName();
+    //p2.getName();
 
 
     Player* result = ref.refGame(&p1, &p2);

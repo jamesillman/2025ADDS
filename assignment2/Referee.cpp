@@ -6,7 +6,7 @@
 #include <iostream>
 
 
-Player* Referee::refGame(Human* p1, Computer* p2) {
+Player* Referee::refGame(Player* p1, Player* p2) {
     std::string name1 = p1->getName();
 
     Move* player1_move = p1->makeMove();
