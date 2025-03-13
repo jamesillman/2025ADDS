@@ -2,24 +2,35 @@
 #include "Human.h"
 #include "Computer.h"
 #include "Referee.h"
+#include "WinTrack.h"
 #include <iostream>
 
 
 Player* Referee::refGame(Human* p1, Computer* p2) {
-    std::string player1_name = p1.name();
-    std::string player2_name = p2->getName();
+    std::string name1 = p1->getName();
 
-    char player1_move = p1->makeMove();
-    //char player2_move = p2->makeMove();
+    Move* player1_move = p1->makeMove();
+    Move* player2_move = p2->makeMove();
 
-    switch (player1_move) {
-        case 'R':
-            return nullptr;
-        case 'P':
-            return p1;
-        case 'S':
-            return p2;
-        
+    WinTrack winning = WinTrack(player1_move, player2_move);
+
+    int outcome = winning.WinningMove();
+    
+    
+    //std::cout << outcome;
+
+    if (outcome == 1) {
+        return p1;
+    } else if (outcome == -1) {
+        return p2;
+    } else {
+        return nullptr;
     }
-    return nullptr;
+
+
+
+    
+
+
+    //return nullptr;
 }

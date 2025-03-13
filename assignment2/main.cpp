@@ -4,9 +4,10 @@
 #include "Human.h"
 #include "Player.h"
 #include "Referee.h"
+#include "WinTrack.h"
 
 int main(void) {
-    Human p1; 
+    Human p1("James"); 
     Computer p2;
     Referee ref;
 

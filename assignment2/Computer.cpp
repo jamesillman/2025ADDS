@@ -1,16 +1,13 @@
 #include "Computer.h"
 #include <iostream>
 
-// Constructor initializes the name and move
-Computer::Computer() {
-    name = "Computer";
-    move = 'R';
-}
 
 
-char Computer::makeMove() {
-    return 'R'; //comment
+Move* Computer::makeMove() {
+    Move* move = new Move("Rock");
+    return move;
 }
+
 
 std::string Computer::getName() {
     return "Computer";

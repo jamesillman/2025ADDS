@@ -6,15 +6,14 @@
 #include "Player.h"
 
 class Human : public Player {        
-    public:
+    private:
         std::string name;
-        char move;
+    public:
 
-        char makeMove() override;
+        Move* makeMove() override;
         std::string getName() override;
 
         Human(std::string name = "Human");
-        ~Human() {}
         
 
 };

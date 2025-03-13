@@ -7,15 +7,9 @@
 #include <string>
 
 class Computer : public Player {        
-    private:
-        std::string name;
-        char move;
     public:
-        char makeMove() override;
+        Move* makeMove() override;
         std::string getName() override;
-
-        Computer();
-        ~Computer() {}
 
 };
 

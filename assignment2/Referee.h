@@ -4,14 +4,12 @@
 #include <iostream>
 #include <string>
 #include "Player.h"
+#include "WinTrack.h"
 
 class Referee {        
-    private:
 
     public:
-        Player* refGame(Human*, Computer*);
-
-        Referee() {}
+        Player* refGame(Human* p1, Computer* p2);
         
 
 };

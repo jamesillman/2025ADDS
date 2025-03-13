@@ -2,28 +2,24 @@
 #include "Human.h"
 #include <iostream>
 
+#include "Move.h"
 
 Human::Human(std::string name) {
-    if (name.empty()) {
-        this->name = name;
-    }
+    this->name = name;
     
 }
 
 
-char Human::makeMove() {
-    char m;
+Move* Human::makeMove() {
+    std::string temp_move;
     std::cout << "Enter move: ";
-    std::cin >> m;
-    this->move = m;
+    std::cin >> temp_move;
+
+    Move* move = new Move(temp_move);
     return move;
 }
 
 std::string Human::getName() {
-    std::string n;
-    std::cout << "Enter name: ";
-    std::cin >> n;
-    this->name = n;
-    return n;
+    return name;
 }
 
