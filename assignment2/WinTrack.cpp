@@ -31,6 +31,8 @@ int WinTrack::WinningMove() {
         player1_move_int = 6;
     } else if (player1_move_string == "Zombie") {
         player1_move_int = 7;
+    } else {
+        player1_move_int = -1;
     }
     // Convert Player 2's move string to an integer
     if (player2_move_string == "Rock") {
@@ -49,6 +51,8 @@ int WinTrack::WinningMove() {
         player2_move_int = 6;
     } else if (player2_move_string == "Zombie") {
         player2_move_int = 7;
+    } else {
+        player2_move_int = -1;
     }
     
     //std::cout << player1_move_int;
