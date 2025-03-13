@@ -9,10 +9,7 @@ class Move{
     std::string move;
         
     public:
-
-        
         std::string getName();
-
         Move(std::string move);
 
 

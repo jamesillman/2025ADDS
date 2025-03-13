@@ -7,8 +7,8 @@
 #include "WinTrack.h"
 
 int main(void) {
-    Human p1("James"); 
-    Human p2("Me");
+    Human p1("Annie"); 
+    Human p2("James");
     Referee ref;
 
     //p1.getName();
