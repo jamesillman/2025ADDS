@@ -12,7 +12,7 @@ class WinTrack {
     public:
         int WinningMove();
 
-        WinTrack(Move* m1, Move* m2);
+        WinTrack(Move* move1, Move* move2);
 };
 
 #endif  // WINTRACK_H

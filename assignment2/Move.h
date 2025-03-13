@@ -6,11 +6,11 @@
 #include "Player.h"
 
 class Move{        
-
+    std::string move;
         
     public:
 
-        std::string move;
+        
         std::string getName();
 
         Move(std::string move);

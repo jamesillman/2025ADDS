@@ -8,8 +8,8 @@ int WinTrack::WinningMove() {
     std::string player1_move_string = m1->getName();
     std::string player2_move_string = m2->getName();
 
-    std::cout << player1_move_string;
-    std::cout << player2_move_string;
+    //std::cout << player1_move_string;
+    //std::cout << player2_move_string;
 
     int player1_move_int;
     int player2_move_int;
@@ -51,8 +51,8 @@ int WinTrack::WinningMove() {
         player2_move_int = 7;
     }
     
-    std::cout << player1_move_int;
-    std::cout << player1_move_int;
+    //std::cout << player1_move_int;
+    //std::cout << player2_move_int;
 
     //Order Rock,Paper,Scissors,Monkey,Robot,Pirate,Ninja,Zomibe
     //Outcomes 1 P1 wins, -1 P2 wins, 0 Draw, -2 Invalid Match
@@ -75,7 +75,7 @@ int WinTrack::WinningMove() {
 
 }
 
-WinTrack::WinTrack(Move* m1, Move* m2){
-    this->m1 = m1;
-    this->m2 = m2;
+WinTrack::WinTrack(Move* move1, Move* move2){
+    this->m1 = move1;
+    this->m2 = move2;
 }

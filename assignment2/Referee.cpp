@@ -12,6 +12,7 @@ Player* Referee::refGame(Human* p1, Computer* p2) {
     Move* player1_move = p1->makeMove();
     Move* player2_move = p2->makeMove();
 
+
     WinTrack winning = WinTrack(player1_move, player2_move);
 
     int outcome = winning.WinningMove();
