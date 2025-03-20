@@ -18,7 +18,9 @@ int main(void){
     Reverser r;
     int reversedNumber = r.reverseDigit(12345);
     std::cout << reversedNumber << std::endl;
+    
+    std::cout << r.reverseDigit(223432) << std::endl;
 
-    string reversedString = r.reverseString("James");
-    std::cout << reversedString << std::endl;
+    //string reversedString = r.reverseString("James");
+    //std::cout << reversedString << std::endl;
 }
