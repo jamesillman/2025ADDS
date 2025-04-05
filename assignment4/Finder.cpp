@@ -16,6 +16,7 @@
                 
                 // If no prefix is found then all subsequent prefixs will also not be found
                 result.resize(s2.size(),-1);
+                break;
             }
         }
         return result;
