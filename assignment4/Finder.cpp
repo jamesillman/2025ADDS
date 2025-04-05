@@ -10,7 +10,7 @@ vector<int> Finder::findSubstrings(string s1, string s2) {
 
         if (found != string::npos) {
             result.push_back(found);
-            start_index = found + 1;
+            start_index = found;  // Update start_index to the position of the found prefix
         } else {
             result.push_back(-1);
             break;
@@ -23,4 +23,3 @@ vector<int> Finder::findSubstrings(string s1, string s2) {
 
     return result;
 }
-
