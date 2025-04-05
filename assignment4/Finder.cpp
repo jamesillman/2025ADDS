@@ -1,32 +1,22 @@
 #include "Finder.h"
+using namespace std;
 
-    using namespace std;
+vector<int> Finder::findSubstrings(string s1, string s2) {
+    vector<int> result;
+    size_t start_index = 0;  // Start index for find()
 
-    vector<int> Finder::findSubstrings(string s1, string s2) {
-
-        vector<int> result;
-        string currentPrefix = "";
-
-        for (size_t i = 0; i < s2.size(); ++i) {
-            currentPrefix += s2[i];
-            // Do a manual prefix search to avoid substr overhead
-            bool found = false;
-    
-            for (size_t j = 0; j + currentPrefix.size() <= s1.size(); ++j) {
-                if (s1.compare(j, currentPrefix.size(), currentPrefix) == 0) {
-                    result.push_back(j);
-                    found = true;
-                    break;
-                }
-            }
-    
-            if (!found) {
-                // fill rest with -1s
-                result.resize(s2.size(), -1);
-                break;
-            }
+    for (size_t i = 1; i <= s2.size(); ++i) {
+        size_t found = s1.find(s2.substr(0, i), start_index);  // Find prefix starting from start_index
+        
+        if (found != string::npos) {
+            result.push_back(found);
+            start_index = found + 1;  // Update start_index to continue searching after the found prefix
+        } else {
+            result.push_back(-1);  // If not found, return -1 for this prefix
+            result.resize(s2.size(), -1);  // Fill remaining with -1s
+            break;
         }
-        return result;
     }
 
-   
+    return result;
+}
