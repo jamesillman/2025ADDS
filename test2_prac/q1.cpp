@@ -21,6 +21,9 @@ class Node {
         bool positionDelete(int pos);
         bool swap(int i, int j);
         bool deleteFirst(int val);
+        bool insertAt(int pos, int value);
+        bool deleteAll(int value);
+        void reverse();
     };
     
     void LinkedList::headDelete() {
@@ -30,6 +33,7 @@ class Node {
             delete tempNode;
         }
     }
+
     void LinkedList::tailDelete() {
         if (head != nullptr) {
             // Case: only one node
@@ -119,4 +123,53 @@ class Node {
         }
 
         return false;
+    }
+
+    void LinkedList::headDelete() {
+        if (head != nullptr) {
+            Node* temp = head;
+            head = head->link;
+            delete temp;
+        }
+    }
+
+    bool LinkedList::insertAt(int pos, int value) {
+
+        if (pos == 0) {
+            Node* newNode = new Node(value, head);
+            head = newNode;
+        }
+
+        int index = 0;
+        Node* temp = head;
+        while (temp != nullptr && index < pos -1) {
+            index++;
+            temp = temp->link;
+        }
+
+        Node* newNode = new Node(value, temp->link);
+        temp->link = newNode;
+    }
+
+    bool LinkedList::deleteAll(int value) {
+        int index = 0;
+        Node* temp = head;
+
+        while (temp != nullptr && temp->link != nullptr) {
+
+            if (temp->link->data == value){
+                Node* toDelete= temp->link;
+                temp->link = temp->link->link;
+                delete toDelete;
+            } else {
+                temp = temp->link;
+            }
+
+            index++;
+            temp = temp->link;
+        }
+    }
+
+    void LinkedList::reverse() {
+
     }
