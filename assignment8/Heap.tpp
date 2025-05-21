@@ -171,7 +171,6 @@ class Heap {
             
             if (elementIndex == -1) {
                 //not found 
-                return;
             }
 
             //remove element
@@ -187,7 +186,6 @@ class Heap {
         T getMin() {
             if (this->isHeapEmpty()) {
                 //empty heap
-                return;
             }
 
             return this->tree[1];
