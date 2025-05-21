@@ -176,25 +176,12 @@ class Heap {
             //return;
         }
 
-        // Replace the element with the last element
         this->tree[elementIndex] = this->tree.back();
         this->tree.pop_back();
 
-        // If the replaced element is not at the end
         if (elementIndex < this->tree.size()) {
-            // First try heapifying down (standard after replacement)
-            this->heapifyDown(elementIndex);
-
-            // If heapifyDown didn't work, try heapify up
-            heapIndex parent = this->getParentPosition(elementIndex);
-            if (elementIndex > 1 && this->tree[elementIndex] < this->tree[parent]) {
-                while (elementIndex > 1 && this->tree[elementIndex] < this->tree[parent]) {
-                    std::swap(this->tree[elementIndex], this->tree[parent]);
-                    elementIndex = parent;
-                    parent = this->getParentPosition(elementIndex);
-                }
-            }
-        }
+        this->heapifyDown(elementIndex);
+}
     }
 
         // Get the minimum element (in this case, the maximum element of the max-heap)
