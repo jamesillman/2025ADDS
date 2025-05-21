@@ -173,7 +173,7 @@ class Heap {
 
         if (elementIndex == 0) {
             // Not found (0 is not a valid index in this heap)
-            //return;
+            return;
         }
 
         this->tree[elementIndex] = this->tree.back();
