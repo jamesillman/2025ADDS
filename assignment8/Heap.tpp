@@ -160,38 +160,37 @@ class Heap {
         
 
         // Remove an element from the heap
-    void remove(T value) {
-        int elementIndex = -1;
-        for (int i = 1; i < (int)this->tree.size(); i++) {
-            if (this->tree[i] == value) {
-                elementIndex = i;
-                break;
+        void remove(T value) {
+            heapIndex elementIndex = 0;
+            for (heapIndex i = 1; i < this->tree.size(); i++) {
+                if (this->tree[i] == value) {
+                    elementIndex = i;
+                    break;
+                }
+            }
+
+            if (elementIndex == 0) {
+                // Not found, just return
+                //return;
+            }
+
+            // Replace the element with the last element and pop the last
+            this->tree[elementIndex] = this->tree.back();
+            this->tree.pop_back();
+
+            if (elementIndex < this->tree.size()) {
+                // Heapify down from elementIndex to fix min-heap property
+                this->heapifyDown(elementIndex);
+
+                // Then fix upwards if needed
+                heapIndex parent = this->getParentPosition(elementIndex);
+                while (elementIndex > 1 && this->tree[elementIndex] < this->tree[parent]) {
+                    std::swap(this->tree[elementIndex], this->tree[parent]);
+                    elementIndex = parent;
+                    parent = this->getParentPosition(elementIndex);
+                }
             }
         }
-        
-        if (elementIndex == -1) {
-            // Not found, just return
-            //return;
-        }
-
-
-        this->tree[elementIndex] = this->tree.back();
-        this->tree.pop_back();
-
-
-        if (elementIndex < (int)this->tree.size()) {
-
-            this->heapifyDown(elementIndex);
-
-            // Then fix upwards if needed
-            int parent = this->getParentPosition(elementIndex);
-            while (elementIndex > 1 && this->tree[elementIndex] < this->tree[parent]) {
-                std::swap(this->tree[elementIndex], this->tree[parent]);
-                elementIndex = parent;
-                parent = this->getParentPosition(elementIndex);
-            }
-        }
-    }
         
 
         // Get the minimum element (in this case, the maximum element of the max-heap)
