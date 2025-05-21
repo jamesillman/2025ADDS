@@ -179,9 +179,14 @@ class Heap {
         this->tree[elementIndex] = this->tree.back();
         this->tree.pop_back();
 
+        // After removing the element at elementIndex
         if (elementIndex < this->tree.size()) {
-        this->heapify(elementIndex);
-}
+            // Make a copy of the current tree excluding the dummy element at index 0
+            std::vector<T> tempTree(this->tree.begin() + 1, this->tree.end());
+            
+            // Rebuild the heap completely from this vector using your existing heapify method
+            this->heapify(tempTree);
+        }
     }
 
         // Get the minimum element (in this case, the maximum element of the max-heap)
