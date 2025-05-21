@@ -178,7 +178,18 @@ class Heap {
             this->tree.pop_back();
 
             // fix heap
-            this->heapify(this->tree);
+            if (index < this->tree.size()) {
+                // Fix downwards
+                this->heapifyDown(index);
+
+                // Fix upwards by walking up the tree manually using getParentPosition
+                heapIndex parent = this->getParentPosition(index);
+                while (index > 1 && this->tree[index] < this->tree[parent]) {
+                    std::swap(this->tree[index], this->tree[parent]);
+                    index = parent;
+                    parent = this->getParentPosition(index);
+                }
+            }
         }
         
 
