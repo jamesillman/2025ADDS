@@ -24,6 +24,7 @@ class Node {
         bool insertAt(int pos, int value);
         bool deleteAll(int value);
         void reverse();
+        int findMiddle();
     };
     
     void LinkedList::headDelete() {
@@ -171,5 +172,34 @@ class Node {
     }
 
     void LinkedList::reverse() {
+        Node* prev = nullptr;   // Initially, there's no previous node
+        Node* current = head;   // Start with the head node
+        Node* next = nullptr;   // To store the next node temporarily
+    
 
+        while(current != nullptr) {
+            next = current->link;
+            current->link = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+    }
+
+    int LinkedList::findMiddle() {
+
+        if (head == nullptr) {
+            // Return a special value if the list is empty
+            return -1; // or another appropriate error value
+        }
+        
+        Node* slow = head;
+        Node* fast = head;
+
+        while(fast != nullptr && fast->link != nullptr) {
+            fast = fast->link->link;
+            slow = slow->link;
+            
+        }
+        return slow->data;
     }
