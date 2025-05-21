@@ -151,21 +151,46 @@ class Heap {
         }
         
 
-        // TO BE IMPLEMENTED
+
         // Insert an element into the heap
         void insert(T element) {
             this->tree.push_back(element);
             this->heapify(this->tree);
         }
         
-        // TO BE IMPLEMENTED
+
         // Remove an element from the heap
         void remove(T value) {
+            int elementIndex = -1;
+            for (int i = 1; i < this->tree.size(); i++) {
+                if ((this->tree[i]) == value) {
+                    elementIndex = i;
+                    break;
+                }
+            }
+            
+            if (elementIndex == -1) {
+                //not found 
+                return;
+            }
+
+            //remove element
+            this->tree[elementIndex] = this->tree.back();
+            this->tree.pop_back();
+
+            // fix heap
+            this->heapify(this->tree);
         }
         
-        // TO BE IMPLEMENTED
+
         // Get the minimum element (in this case, the maximum element of the max-heap)
         T getMin() {
+            if (this->isHeapEmpty()) {
+                //empty heap
+                return;
+            }
+
+            return this->tree[1];
         }
 };
 
