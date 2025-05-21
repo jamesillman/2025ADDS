@@ -159,7 +159,7 @@ class Heap {
         }
         
 
-        // Remove an element from the heap
+    // Remove an element from the heap
     void remove(T value) {
         heapIndex elementIndex = 0;
 
@@ -180,7 +180,7 @@ class Heap {
         this->tree.pop_back();
 
         if (elementIndex < this->tree.size()) {
-        this->heapifyDown(elementIndex);
+        this->heapify(elementIndex);
 }
     }
 
