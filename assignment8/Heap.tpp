@@ -159,35 +159,38 @@ class Heap {
         }
         
 
-    // Remove an element from the heap
-    void remove(T value) {
-        heapIndex elementIndex = 0;
+        // Remove an element from the heap
+        void remove(T value) {
+            heapIndex index_to_remove = -1;
 
-        // Find the index of the element to remove
-        for (heapIndex i = 1; i < this->tree.size(); i++) {
-            if (this->tree[i] == value) {
-                elementIndex = i;
-                break;
+            // 1. Find the index of the value to remove
+            for (heapIndex i = 1; i < tree.size(); ++i) {
+                if (tree[i] == value) {
+                    index_to_remove = i;
+                    break;
+                }
+            }
+
+            if (index_to_remove == -1) return; // Not found
+
+            // 2. Replace with last element
+            tree[index_to_remove] = tree.back();
+            tree.pop_back();
+
+            if (index_to_remove >= tree.size()) return; // Removed last element
+
+            // 3. Restore the heap
+            heapifyDown(index_to_remove); // Try going down
+
+            // 4. Try bubbling up if needed
+            heapIndex parent = getParentPosition(index_to_remove);
+            while (index_to_remove > 1 && tree[index_to_remove] < tree[parent]) {
+                std::swap(tree[index_to_remove], tree[parent]);
+                index_to_remove = parent;
+                parent = getParentPosition(index_to_remove);
             }
         }
 
-        if (elementIndex == 0) {
-            // Not found (0 is not a valid index in this heap)
-            return;
-        }
-
-        this->tree[elementIndex] = this->tree.back();
-        this->tree.pop_back();
-
-        // After removing the element at elementIndex
-        if (elementIndex < this->tree.size()) {
-            // Make a copy of the current tree excluding the dummy element at index 0
-            std::vector<T> tempTree(this->tree.begin() + 1, this->tree.end());
-            
-            // Rebuild the heap completely from this vector using your existing heapify method
-            this->heapify(tempTree);
-        }
-    }
 
         // Get the minimum element (in this case, the maximum element of the max-heap)
         T getMin() {
