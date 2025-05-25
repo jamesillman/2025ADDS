@@ -180,7 +180,7 @@ class Heap {
             if (index_to_remove >= tree.size()) return; // Removed last element
 
             // 3. Restore the heap
-            int position = getParentPosition(index_to_remove)
+            int position = getParentPosition(index_to_remove);
             heapifyDown(position); // Try going down
 
         }
