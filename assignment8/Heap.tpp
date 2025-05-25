@@ -161,12 +161,12 @@ class Heap {
 
         // Remove an element from the heap
         void remove(T value) {
-            int index_to_remove = tree.size(); // Sentinel value: not found
+            size_t index_to_remove = tree.size(); // Sentinel value: not found
 
-            int size = tree.size();
+            size_t size = tree.size();
 
             // 1. Find the index of the value to remove
-            for (int i = 1; i < size; i++) {
+            for (size_t i = 1; i < size; i++) {
                 if (tree.at(i) == value) {
                     index_to_remove = i;
                     break;
