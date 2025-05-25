@@ -161,26 +161,28 @@ class Heap {
 
         // Remove an element from the heap
         void remove(T value) {
-            int index_to_remove = -1;
+            size_t index_to_remove = tree.size(); // Sentinel value: not found
 
             // 1. Find the index of the value to remove
-            for (int i = 1; i < tree.size(); i++) {
+            for (size_t i = 1; i < tree.size(); i++) {
                 if (tree.at(i) == value) {
                     index_to_remove = i;
                     break;
                 }
             }
 
-            if (index_to_remove == -1) return; // Not found
+            if (index_to_remove == tree.size()) return; // Not found
 
             // 2. Replace with last element
-            tree.at(index_to_remove) = tree.at(tree.size() - 1);
+            tree.at(index_to_remove) = tree.back();
             tree.pop_back();
 
             // 3. Restore the heap
-            if (index_to_remove < tree.size())
-                heapifyDown(index_to_remove);  
+            if (index_to_remove < tree.size()) {
+                heapifyDown(index_to_remove);
+            }
         }
+
 
 
         // Get the minimum element (in this case, the maximum element of the max-heap)
