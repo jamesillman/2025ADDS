@@ -177,8 +177,6 @@ class Heap {
             tree.at(index_to_remove) = tree.at(tree.size() - 1);
             tree.pop_back();
 
-            tree.pop_back();
-
             // 3. Restore the heap
             int position = getParentPosition(index_to_remove);
             heapifyDown(position); // Try going down
