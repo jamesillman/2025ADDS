@@ -180,15 +180,9 @@ class Heap {
             if (index_to_remove >= tree.size()) return; // Removed last element
 
             // 3. Restore the heap
-            heapifyDown(index_to_remove); // Try going down
+            int position = getParentPosition(index_to_remove)
+            heapifyDown(position); // Try going down
 
-            // 4. Try bubbling up if needed
-            heapIndex parent = getParentPosition(index_to_remove);
-            while (index_to_remove > 1 && tree[index_to_remove] < tree[parent]) {
-                std::swap(tree[index_to_remove], tree[parent]);
-                index_to_remove = parent;
-                parent = getParentPosition(index_to_remove);
-            }
         }
 
 
