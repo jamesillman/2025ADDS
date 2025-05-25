@@ -159,31 +159,36 @@ class Heap {
         }
         
 
-        // Remove an element from the heap
         void remove(T value) {
-            size_t index_to_remove = tree.size(); // Sentinel value: not found
-
-            size_t size = tree.size();
+            int index_to_remove = -1;
+            int size = tree.size();
 
             // 1. Find the index of the value to remove
-            for (size_t i = 1; i < size; i++) {
+            for (int i = 1; i < size; i++) {
                 if (tree.at(i) == value) {
                     index_to_remove = i;
                     break;
                 }
             }
 
-            if (index_to_remove == tree.size()) return; // Not found
+            if (index_to_remove == -1) return; // Not found
 
             // 2. Replace with last element
             tree.at(index_to_remove) = tree.back();
             tree.pop_back();
 
-            // 3. Restore the heap
             if (index_to_remove < tree.size()) {
+                // 3. If new element is smaller than parent, swap upward once
+                int parent = getParentPosition(index_to_remove);
+                if (parent >= 1 && tree.at(index_to_remove) < tree.at(parent)) {
+                    std::swap(tree.at(index_to_remove), tree.at(parent));
+                    index_to_remove = parent;
+                }
+                // 4. Restore heap by heapifyDown from current index
                 heapifyDown(index_to_remove);
             }
         }
+
 
 
 
