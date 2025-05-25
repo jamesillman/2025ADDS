@@ -161,10 +161,10 @@ class Heap {
 
         // Remove an element from the heap
         void remove(T value) {
-            heapIndex index_to_remove = -1;
+            int index_to_remove = -1;
 
             // 1. Find the index of the value to remove
-            for (heapIndex i = 1; i < tree.size(); ++i) {
+            for (int i = 1; i < tree.size(); i++) {
                 if (tree.at(i) == value) {
                     index_to_remove = i;
                     break;
