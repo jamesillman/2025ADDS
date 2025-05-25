@@ -165,7 +165,7 @@ class Heap {
 
             // 1. Find the index of the value to remove
             for (heapIndex i = 1; i < tree.size(); ++i) {
-                if (tree[i] == value) {
+                if (tree.at(i) == value) {
                     index_to_remove = i;
                     break;
                 }
@@ -174,10 +174,10 @@ class Heap {
             if (index_to_remove == -1) return; // Not found
 
             // 2. Replace with last element
-            tree[index_to_remove] = tree.back();
+            tree.at(index_to_remove) = tree.at(tree.size() - 1);
             tree.pop_back();
 
-            if (index_to_remove >= tree.size()) return; // Removed last element
+            tree.pop_back();
 
             // 3. Restore the heap
             int position = getParentPosition(index_to_remove);
