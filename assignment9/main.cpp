@@ -1,5 +1,5 @@
 #include <iostream>
-#include "dms.h"
+#include "DocumentManager.h"
 
 int main() {
     dms manager;
