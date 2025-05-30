@@ -1,5 +1,5 @@
-#ifndef DMS_H
-#define DMS_H
+#ifndef DOCMAN_H
+#define DOCMAN_H
 
 #include <string>
 #include <iostream>
@@ -10,7 +10,7 @@
 using namespace std;
 
 
-class dms {
+class DocumentManager {
     private:
         struct Document {
             std::string name;
