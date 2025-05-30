@@ -4,6 +4,7 @@ void DocumentManager::addDocument(string name, int id, int license_limit) {
     Document tempDoc{name, id, license_limit, 0};  // borrowed starts at 0
     
     documentsById.insert({id, tempDoc});
+    documentsByName.insert({name, tempDoc});
 };
 
 void DocumentManager::addPatron(int patronID) {
